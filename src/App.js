@@ -1,25 +1,25 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import Navbar from "./components/navegacion/Navbar";
+import Inicio from "./components/paginas/Inicio";
+import RickandMorty from "./components/paginas/Rickandmorty";
+import Formulario from "./components/paginas/Formulario";
+import Usuarios from "./components/paginas/Usuarios";
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <Router>
+        <Navbar />
+        <Routes>
+          <Route path="/" element={<Inicio />} />
+          <Route path="/apirick" element={<RickandMorty />} />
+          <Route path="/formulario" element={<Formulario />} />
+          <Route path="/usuarios" element={<Usuarios />} />
+        </Routes>
+      </Router>
     </div>
   );
-}
+};
 
 export default App;
